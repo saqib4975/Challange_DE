@@ -1,0 +1,44 @@
+version: '2.1'
+services:
+    postgres:
+        image: postgres:9.6
+        restart: always
+        environment:
+            POSTGRES_USER: airflow
+            POSTGRES_PASSWORD: airflow
+            POSTGRES_DB: airflow
+        ports:
+            - "5432:5432"
+
+    pgadmin4:
+        image: dpage/pgadmin4
+        restart: always
+        environment:
+            PGADMIN_DEFAULT_EMAIL: contato@company.com
+            PGADMIN_DEFAULT_PASSWORD: postgres
+        ports:
+            - "15432:80"
+
+    webserver:
+        image: puckel/docker-airflow
+        restart: always
+        user: root
+        depends_on:
+            - postgres
+        environment:
+            LOAD_EX: 'n'  # Note: Use 'n' instead of n
+            EXECUTOR: Local
+            AIRFLOW_HOME: /airflow  # Use /airflow as the path inside the container
+        volumes:
+            - ./dags:/usr/local/airflow/dags  # Use a relative path for the host volume
+        ports:
+            - "8080:8080"
+        command: webserver
+        privileged: true  # Be cautious when using privileged mode
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3  # Specify the retries as an integer, not a string
+
+

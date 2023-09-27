@@ -1,0 +1,5 @@
+"order_id","customer_id","product_id","quantity","price","order_date","id","name","username","email","lat","lng"
+2334,5,40,3,35.6,"6/21/22",5,Chelsey Dietrich,Kamren,Lucio_Hettinger@annie.ca,-31.8129,"62.5342"
+6228,8,13,7,36.52,"3/8/23",8,Nicholas Runolfsdottir V,Maxime_Nienow,Sherwood@rosamond.me,-14.3990,-120.7677
+7784,9,44,4,46.56,"4/22/23",9,Glenna Reichert,Delphine,Chaim_McDermott@dana.io,"24.6463",-168.8889
+6588,5,26,1,15.87,"10/23/22",5,Chelsey Dietrich,Kamren,Lucio_Hettinger@annie.ca,-31.8129,"62.5342"
