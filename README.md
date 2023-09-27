@@ -25,38 +25,6 @@ Dependencies:
 
 """
 
-# Import necessary libraries and modules
 
-# Define default arguments for the DAG
-default_args = {
-    'owner': 'your_name',
-    'depends_on_past': False,
-    'start_date': datetime(2023, 1, 1),
-    'retries': 1,
-}
 
-# Create the DAG object
-dag = DAG(
-    'data_processing_dag',
-    default_args=default_args,
-    description='A DAG for data processing tasks',
-    schedule_interval=None,  # You can set a schedule interval if needed
-    catchup=False,
-)
 
-# Task 1: Fetch and Save User Data
-# Define PythonOperator, set task_id and python_callable
-
-# Task 2: Write Sales Data to SQLite
-# Define PythonOperator, set task_id and python_callable
-
-# Task 3: Get Weather Data
-# Define PythonOperator, set task_id and python_callable
-
-# Task dependencies
-# Define dependencies using >> operator
-# fetch_and_save_user_data_task >> write_sales_data_task
-# write_sales_data_task >> get_weather_data_task
-
-if __name__ == "__main__":
-    dag.cli()
